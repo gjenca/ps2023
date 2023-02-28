@@ -2,7 +2,7 @@
 
 import socket
 
-ADDR=('127.0.0.1',9999)
+ADDR=('',9999)
 
 zvierata={
     'pštros':2,
@@ -14,6 +14,7 @@ ds=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 ds.bind(ADDR)
 while True:
     data,addr_client=ds.recvfrom(100)
+    print(data,addr_client)
     data_s=data.decode('utf-8').strip()
     if data_s in zvierata:
         pocet_noh=zvierata[data_s]
