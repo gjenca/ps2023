@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import socket
+
+ADDR=('127.0.0.1',9999)
+
+zvierata={
+    'pštros':2,
+    'pes':4,
+    'had':0,
+}
+
+ds=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+ds.bind(ADDR)
+while True:
+    data,addr_client=ds.recvfrom(100)
+    data_s=data.decode('utf-8').strip()
+    if data_s in zvierata:
+        pocet_noh=zvierata[data_s]
+    else:
+        pocet_noh=-1
+    ds.sendto(str(pocet_noh).encode('utf-8'),addr_client)
+
+

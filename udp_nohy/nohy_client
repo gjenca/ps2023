@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+import sys
+import socket
+
+ADDR=('127.0.0.1',9999)
+
+zviera=sys.argv[1]
+
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+s.sendto(zviera.strip().encode('utf-8'),ADDR)
+pocet_noh,addr=s.recvfrom(10)
+print(pocet_noh.decode('utf-8'))
+
+
