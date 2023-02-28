@@ -2,7 +2,7 @@
 import sys
 import socket
 
-ADDR=('127.0.0.1',9999)
+ADDR=('mpm.svf.stuba.sk',9999)
 
 zviera=sys.argv[1]
 
