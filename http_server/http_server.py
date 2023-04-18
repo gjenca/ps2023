@@ -73,15 +73,15 @@ while True:
                 break
             print(method,url,protocol)
             if method!='GET':
-             send_error(f,STATUS_METHOD_NOT_ALLOWED)
-             break
+                send_error(f,STATUS_METHOD_NOT_ALLOWED)
+                break
             headers={}
             while True:
                 header_line=f.readline().decode('ascii').rstrip()
                 if not header_line:
                     break
                 key,val=header_line.split(': ',1)
-                headers[key]=val
+                headers[key.tolower()]=val
             print(headers)
             filename=DOCUMENT_ROOT+url
             try:
